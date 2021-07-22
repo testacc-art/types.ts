@@ -18,7 +18,6 @@ jobs:
       - run: git checkout routes-update || true
       - run: npm ci
       - run: npm install @octokit/openapi-types@latest
-        if: github.event_name == 'repository_dispatch'
       - run: node -e "console.log('::set-output name=version::' + require('@octokit/openapi-types/package').octokit['openapi-version'])"
         id: openapi_types
       - run: npm run update-endpoints
